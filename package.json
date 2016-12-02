@@ -1,0 +1,32 @@
+{
+  "name": "dashboard",
+  "version": "1.0.0",
+  "description": "Dashboard for experiments.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vzhong/dashboard.git"
+  },
+  "author": "Victor Zhong",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vzhong/dashboard/issues"
+  },
+  "homepage": "https://github.com/vzhong/dashboard#readme",
+  "dependencies": {
+    "axios": "^0.15.3",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "firebase": "^3.6.2",
+    "firebase-admin": "^4.0.3",
+    "moment": "^2.17.0",
+    "pug": "^2.0.0-beta6"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
