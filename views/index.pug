@@ -1,27 +1,12 @@
-doctype html
-html
-  head
-    title Dashboard
-    script(src="//unpkg.com/axios/dist/axios.min.js")
-  body
-    h1 Experiments
+extends layout
+block content
+    div.clearfix
+        h1 Experiments
+        div.input-group.col-sm-3.pull-right
+            span.input-group-addon#search-label
+              i.glyphicon.glyphicon-search
+            input.form-control#search_bar(type="text", placeholder="Search", aria-describedby="search-label")
+    div.text-center#experiments
 
-    form(action="/experiments" method="POST")
-      input(type="text" placeholder="name" name="name")
-      input(type="text" placeholder="username" name="username")
-      button(type="submit") Make new experiment
-
-    table
-      tr
-        th name
-        th username
-        th last updated
-        th delete
-      for e in experiments
-        tr
-          td= e.name
-          td= e.username
-          td= e.last_updated
-          td
-            button(onclick="delete_experiment('" + e.name+ "')") delete
-    script(src="main.js")
+block js
+    script(src="index.js")

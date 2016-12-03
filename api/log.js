@@ -2,15 +2,15 @@ const moment = require('moment')
 let router = require('log').Router()
 
 
-router.post('/', (req, res) => {
-    req.app.get('db').ref('experiments/' + req.body.name + '/logs').set(req.body)
-    req.app.get('db').ref('experiments/' + req.body.name + '/last_updated').set(moment().format('LLLL'))
+router.post('/:name', (req, res) => {
+    req.app.get('db').ref('experiments/' + req.params.name + '/logs').set(req.body)
+    req.app.get('db').ref('experiments/' + req.params.name + '/last_updated').set(moment().format('LLLL'))
     res.redirect('/')
 })
 
 
-router.get('/',  (req, res) => {
-    req.app.get('db').ref('experiments').once('value')
+router.get('/:name',  (req, res) => {
+    req.app.get('db').ref('experiments/' + req.params.name + '/logs').once('value')
     .then(snapshot => {
         let results = snapshot.val()
         res.render('index.pug', {experiments: Object.values(results || [])})
