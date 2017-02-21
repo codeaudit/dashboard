@@ -1,5 +1,7 @@
 .credentials/
 .config.json
+*.egg-info/
+*.py[cod]
 
 # Logs
 logs
